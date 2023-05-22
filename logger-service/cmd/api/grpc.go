@@ -19,6 +19,7 @@ type LogServer struct {
 	Models data.Models
 }
 
+// definition for function in remote grpc server
 func (l *LogServer) WriteLog(ctx context.Context, req *logs.LogRequest) (*logs.LogResponse, error) {
 	input := req.GetLogEntry()
 	//write the log
@@ -38,7 +39,7 @@ func (l *LogServer) WriteLog(ctx context.Context, req *logs.LogRequest) (*logs.L
 	return res, nil
 }
 
-// function to grpclistener
+// function for grpclistener
 func (app *Config) gRpcListen() {
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", gRpcPort))
 	if err != nil {
