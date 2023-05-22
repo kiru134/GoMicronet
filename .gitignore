@@ -2,7 +2,5 @@ go.sum
 go.mod
 mongo
 postgres
-logger-service
-mail-service
-project
+db-data
 listener-service
