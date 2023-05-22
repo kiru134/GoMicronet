@@ -2,5 +2,4 @@ go.sum
 go.mod
 mongo
 postgres
-db-data
-listener-service
+
