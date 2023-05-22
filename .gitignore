@@ -1,4 +1,8 @@
-authentication-service
+go.sum
+go.mod
+mongo
+postgres
 logger-service
 mail-service
-db-data
+project
+listener-service
