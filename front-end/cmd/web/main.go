@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -43,8 +44,14 @@ func render(w http.ResponseWriter, t string) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	// passing data to the template
+	var data struct {
+		BrokerURL string
+	}
 
-	if err := tmpl.Execute(w, nil); err != nil {
+	data.BrokerURL = os.Getenv("BROKER_URL")
+	log.Println(data.BrokerURL)
+	if err := tmpl.Execute(w, data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
